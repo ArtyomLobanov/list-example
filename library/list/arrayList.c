@@ -83,17 +83,20 @@ struct ArrayListIterator {
     int index;
 };
 
-ArrayListIterator* getIterator(ArrayList* list) {
+ArrayListIterator* getIterator(ArrayList* list)
+{
     ArrayListIterator* iterator = malloc(sizeof(ArrayListIterator));
     iterator->list = list;
     iterator->index = 0;
     return iterator;
 }
 
-Value getValue(ArrayListIterator* iterator) {
+Value getValue(ArrayListIterator* iterator)
+{
     return get(iterator->list, iterator->index);
 }
-ArrayListIterator* next(ArrayListIterator* iterator) {
+ArrayListIterator* next(ArrayListIterator* iterator)
+{
     iterator->index++;
     if (iterator->index < getSize(iterator->list))
         return iterator;
